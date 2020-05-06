@@ -11,7 +11,8 @@
     "make-error-cause": "^1.1.1",
     "through2": "^2.0.0",
     "uglify-js": "^3.0.5",
-    "vinyl-sourcemaps-apply": "^0.2.0"
+    "vinyl-sourcemaps-apply": "^0.2.0",
+    "snyk": "^1.319.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
@@ -72,11 +73,14 @@
   "scripts": {
     "lint": "eslint *.js lib test",
     "test": "nyc --reporter=lcov --reporter=text mocha --require intelli-espower-loader",
-    "coverage": "cat ./coverage/lcov.info | coveralls"
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "greenkeeper": {
     "ignore": [
       "gulp-sourcemaps"
     ]
-  }
+  },
+  "snyk": true
 }
